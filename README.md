@@ -12,5 +12,5 @@ A website that allows a user to create a secure unique password. The user can ch
 This website is intended to be used for creating secure password for uses for whatever needs they have.
 
 ## Authors and Acknowledgements
-This website was made with the help by Florin on Traversy Media. Florin helped with recomending higher level Javascript library syntax that allowed for condensed logic for the password generation. 
+This website was made with the help by Florin on Traversy Media. Florin helped with recomending higher level Javascript library syntax that allowed for condensed logic for the password generation. <br />
 Link to his video: https://www.youtube.com/watch?v=duNmhKgtcsI
