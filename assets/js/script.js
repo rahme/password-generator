@@ -264,7 +264,7 @@ function generatepassword(){
   return password
 }
 
-//Function to Trigger Password Generation and Push to Webpage
+//Function to Trigger Password Generation and Push to the Webpage
 function writePassword() {
   var password = generatepassword();
   var passwordText = document.querySelector("#password");
