@@ -27,7 +27,6 @@ function generatespecial(){
   return special[Math.floor(Math.random() * special.length)]
 }
 
-
 //Functions to Create Random Password Strings
 function oneChoice(up, low, num, spec, len){
   var pass = ''
@@ -55,176 +54,155 @@ function oneChoice(up, low, num, spec, len){
 }
 function twoChoices(up, low, num, spec, len){
   var pass = ''
-  var choice = ''
+  var remainder = len % 2;
+  var itt = Math.floor(len/2);
+
   if(num == true && up == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generateupper()
-      }
-      if(choice === 1){
-        pass += generatenumber()
-      }
+    for(i = 0; i < itt ; i++){
+      pass += generatenumber()
+      pass += generateupper()
+    }
+    if(remainder > 0){
+      pass += generatenumber()
     }
   }
   if(num == true && low == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generatelower()
-      }
-      if(choice === 1){
-        pass += generatenumber()
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatenumber()
+      pass += generatelower()
+    }
+    if(remainder > 0){
+      pass += generatenumber()
     }
   }
   if(num == true && spec == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generatespecial()
-      }
-      if(choice === 1){
-        pass += generatenumber()
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatenumber()
+      pass += generatespecial()
+    }
+    if(remainder > 0){
+      pass += generatenumber()
     }
   }
-  if(low == true && up == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generateupper()
-      }
-      if(choice === 1){
-        pass += generatelower()
-      }
+  if(up == true && low == true){
+    for(i = 0; i < itt; i++){
+      pass += generateupper()
+      pass += generatelower()
+    }
+    if(remainder > 0){
+      pass += generateupper()
     }
   }
-  if(spec == true && up == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generateupper()
-      }
-      if(choice === 1){
-        pass += generatespecial()
-      }
+  if(up == true && spec == true){
+    for(i = 0; i < itt; i++){
+      pass += generateupper()
+      pass += generatespecial()
+    }
+    if(remainder > 0){
+      pass += generateupper()
     }
   }
-  if(low == true && spec == true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 2)
-      console.log(choice)
-      if(choice === 0){
-        pass += generatelower()
-      }
-      if(choice === 1){
-        pass += generatespecial()
-      }
+  if(spec == true && low == true){
+    for(i = 0; i < itt; i++){
+      pass += generatespecial()
+      pass += generatelower()
+    }
+    if(remainder > 0){
+      pass += generatespecial()
     }
   }
-
   return pass;
 }
 function threeChoices(up, low, num, spec, len){
   var pass = ''
-  var choice = ''
+  var remainder = len % 3;
+  var itt = Math.floor(len/3);
 
   if(num === true && up === true && low === true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 3)
-      switch(choice){
-        case 0:
-          pass += generatenumber()
-          break;
-        case 1:
-          pass += generateupper()
-          break;
-        case 2:
-          pass += generatelower()
-          break;
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatenumber()
+      pass += generateupper()
+      pass += generatelower()
+    }
+    if(remainder === 1){
+      pass += generatenumber()
+    }
+    if(remainder === 2){
+      pass += generatenumber()
+      pass += generateupper()
     }
   }
   if(num === true && up === true && spec === true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 3)
-      switch(choice){
-        case 0:
-          pass += generatenumber()
-          break;
-        case 1:
-          pass += generateupper()
-          break;
-        case 2:
-          pass += generatespecial()
-          break;
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatenumber()
+      pass += generateupper()
+      pass += generatespecial()
+    }
+    if(remainder === 1){
+      pass += generatenumber()
+    }
+    if(remainder === 2){
+      pass += generatenumber()
+      pass += generateupper()
     }
   }
   if(num === true && spec === true && low === true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 3)
-      switch(choice){
-        case 0:
-          pass += generatenumber()
-          break;
-        case 1:
-          pass += generateupper()
-          break;
-        case 2:
-          pass += generatelower()
-          break;
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatenumber()
+      pass += generatespecial()
+      pass += generatelower()
+    }
+    if(remainder === 1){
+      pass += generatenumber()
+    }
+    if(remainder === 2){
+      pass += generatenumber()
+      pass += generatespecial()
     }
   }
   if(spec === true && up === true && low === true){
-    for(i = 0; i < len; i++){
-      choice = Math.floor(Math.random() * 3)
-      switch(choice){
-        case 0:
-          pass += generatenumber()
-          break;
-        case 1:
-          pass += generateupper()
-          break;
-        case 2:
-          pass += generatelower()
-          break;
-      }
+    for(i = 0; i < itt; i++){
+      pass += generatespecial()
+      pass += generateupper()
+      pass += generatelower()
+    }
+    if(remainder === 1){
+      pass += generatespecial()
+    }
+    if(remainder === 2){
+      pass += generatespecial()
+      pass += generateupper()
     }
   }
   return pass
 }
 function fourChoices(len){
   var pass = ''
-  var choice = ''
+  var remainder = len % 4;
+  var itt = Math.floor(len/4);
 
-  for(i = 0; i < len; i++){
-    choice = Math.floor(Math.random() * 4)
-    switch(choice){
-      case 0:
-        pass += generatespecial()
-        break;
-      case 1:
-        pass += generatenumber()
-        break;
-      case 2:
-        pass += generatelower()
-        break;
-      case 3:
-        pass += generateupper()
-        break;
-    }
+  for(i = 0; i < itt; i++){
+    pass += generateupper()
+    pass += generatelower()
+    pass += generatenumber()
+    pass += generatespecial()
   }
 
+  if(remainder === 1){
+    pass += generateupper()
+  }
+  if(remainder === 2){
+    pass += generateupper()
+    pass += generatelower()
+  }
+  if(remainder === 3){
+    pass += generateupper()
+    pass += generatelower()
+    pass += generatenumber()
+  }
   return pass
-}
+  }
+
 
 //Function to Create Random Password
 function generatepassword(){
@@ -244,20 +222,16 @@ function generatepassword(){
 
   switch(typesChosen){
     case 1:
-      console.log(1)
       password = oneChoice(up, low, num, spec, len)
       break;
     case 2:
-      console.log(2)
       password = twoChoices(up, low, num, spec, len)
       break;
     case 3:
-      console.log(3)
       password = threeChoices(up, low, num, spec, len)
       break;
     case 4:
       password = fourChoices(len)
-      console.log(4)
       break;
   }
 
